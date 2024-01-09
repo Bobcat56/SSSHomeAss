@@ -1,4 +1,5 @@
 <div>
-    <a href="/cars">Cars list</a>
-    <a href="/cars/create">Create new car</a>
+    <a href="/manufacturers">Manufacturers</a>
+    <a href="/cars">Cars</a>
 </div>
+

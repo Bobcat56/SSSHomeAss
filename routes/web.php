@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\ManufacturerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,27 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 //List of manufacturers
-Route::get('/manufacturers', function () {
-    return view('welcome');
-})-> name('manufacturers.list');
+Route::get('/manufacturers', [ManufacturerController::class, 'index'])->name('manufacturers.index');
 
 //List of cars
-Route::get('/cars', function () {
-    return view('welcome');
-})-> name('cars.list');
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 
 //Create new car
-Route::get('/cars/create', function () {
-    return view('welcome');
-})->name('cars.create');
+Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 
 //Car details
-Route::get('/cars/{id}', function ($id) {
-    return App\Models\Car::find($id);
-})->name('cars.show');
+Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 
 //Edit Car
-Route::get('/cars/{id}/edit', function ($id) {
-    return view('welcome');
-})->name('cars.edit');
+Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
+
 
