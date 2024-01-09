@@ -13,6 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+//List of manufacturers
+Route::get('/manufacturers', function () {
     return view('welcome');
-});
+})-> name('manufacturers.list');
+
+//List of cars
+Route::get('/cars', function () {
+    return view('welcome');
+})-> name('cars.list');
+
+//Create new car
+Route::get('/cars/create', function () {
+    return view('welcome');
+})->name('cars.create');
+
+//Car details
+Route::get('/cars/{id}', function ($id) {
+    return App\Models\Car::find($id);
+})->name('cars.show');
+
+//Edit Car
+Route::get('/cars/{id}/edit', function ($id) {
+    return view('welcome');
+})->name('cars.edit');
+
