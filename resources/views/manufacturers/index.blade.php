@@ -40,36 +40,16 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Alfred</td>
-                      <td>Kuhlman</td>
-                      <td>Company one</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Frederick</td>
-                      <td>Jerde</td>
-                      <td>Company one</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Joannie</td>
-                      <td>McLaughlin</td>
-                      <td>Company Two</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>Odie</td>
-                      <td>Koss</td>
-                      <td>Company Two</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>Edna</td>
-                      <td>Ondricka</td>
-                      <td>Company Three</td>
-                    </tr>
+                      @if($manufacturers -> count())
+                        @foreach($manufacturers as $index => $manufacturers)
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>{{ $manufacturers -> name }}</td>
+                          <td>{{ $manufacturers -> address }}</td>
+                          <td>{{ $manufacturers -> phone }}</td>
+                        </tr>
+                        @endforeach
+                      @endif
                   </tbody>
                 </table> 
 
