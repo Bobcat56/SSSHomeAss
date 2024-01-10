@@ -30,6 +30,11 @@
                     </tr>
                   </thead>
                   <tbody>
+                      @if ($message = session('success'))
+                        <div class="alert alert-success">
+                          <p>{{ $message }}</p>
+                        </div>
+                      @endif
 
                       @if($cars -> count())
                         @foreach($cars as $index => $cars)

@@ -31,22 +31,19 @@ class CarController extends Controller
         $request->validate([
             'model' => 'required',
             'year' => 'required',
-            'email' => 'required | email',
-            'company_id' => 'required | exists:manufacturers,id'
+            'salesperson_email' => 'required | email',
+            'manufacturer_id' => 'required | exists:manufacturers,id'
         ]);
 
         $car = new Car([
             'model' => $request->get('model'),
             'year' => $request->get('year'),
-            'email' => $request->get('email'),
-            'manufacturer_id' => $request->get('company_id')
+            'salesperson_email' => $request->get('salesperson_email'),
+            'manufacturer_id' => $request->get('manufacturer_id')
         ]);
-
-        dd($request->all());
-
-        //$car->save();
-        //return redirect('/cars')->with('success', 'Car saved!');
-        
+        //dd($request->all());
+        Car::create($request->all());
+        return redirect()->route('cars.index')->with('success', 'Car has been added');
     }
 
     public function show($id)
