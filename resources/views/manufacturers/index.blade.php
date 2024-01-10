@@ -12,24 +12,6 @@
                   </div>
                 </div>
               <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6"></div>
-                  <div class="col-md-6">
-                    <div class="row">
-                      <div class="col">
-                        <div class="input-group mb-3">
-                          <select class="custom-select">
-                            <option value="" selected>All Companies</option>
-                            <option value="1">Company One</option>
-                            <option value="2">Company Two</option>
-                            <option value="3">Company Three</option>
-                          </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <table class="table table-striped table-hover">
                   <thead>
                     <tr>
@@ -43,7 +25,7 @@
                       @if($manufacturers -> count())
                         @foreach($manufacturers as $index => $manufacturers)
                         <tr>
-                          <th scope="row">1</th>
+                          <th scope="row">{{ $index + 1 }}</th>
                           <td>{{ $manufacturers -> name }}</td>
                           <td>{{ $manufacturers -> address }}</td>
                           <td>{{ $manufacturers -> phone }}</td>
