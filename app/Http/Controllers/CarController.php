@@ -61,4 +61,19 @@ class CarController extends Controller
 
         return view('cars.edit', compact('car', 'manufacturers'));
     }
+
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            'model' => 'required',
+            'year' => 'required',
+            'salesperson_email' => 'required | email',
+            'manufacturer_id' => 'required | exists:manufacturers,id'
+        ]);
+
+        $car = Car::find($id);
+        $car->update($request->all());
+
+        return redirect()->route('cars.index')->with('success', 'Car has been updated');
+    }
 }

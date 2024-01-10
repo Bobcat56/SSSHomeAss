@@ -23,15 +23,16 @@ Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 //Create new car
 Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 
-//Post created Car to database
+//Store Car (Posts the new car to the database)
 Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
 
 //Car details
 Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 
-//Edit Car
+//Edit Car (Gets the form pre populated with the car details)
 Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
 
-
+//Update Car (Posts the updated car to the database)
+Route::put('/cars/{id}', [CarController::class, 'update'])->name('cars.update');
 
 
