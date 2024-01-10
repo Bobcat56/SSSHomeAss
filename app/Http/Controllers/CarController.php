@@ -42,10 +42,10 @@ class CarController extends Controller
             'manufacturer_id' => $request->get('company_id')
         ]);
 
-        //dd($request->all());
+        dd($request->all());
 
-        $car->save();
-        return redirect('/cars')->with('success', 'Car saved!');
+        //$car->save();
+        //return redirect('/cars')->with('success', 'Car saved!');
         
     }
 
