@@ -35,4 +35,5 @@ Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit')
 //Update Car (Posts the updated car to the database)
 Route::put('/cars/{id}', [CarController::class, 'update'])->name('cars.update');
 
-
+//Delete Car
+Route::delete('/cars/{id}', [CarController::class, 'destroy'])->name('cars.destroy');
