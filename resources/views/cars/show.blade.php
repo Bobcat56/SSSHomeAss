@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Car Details</h1>
 <main class="py-5">
       <div class="container">
         <div class="row justify-content-md-center">
@@ -16,28 +15,28 @@
                     <div class="form-group row">
                       <label for="first_name" class="col-md-3 col-form-label">Model</label>
                       <div class="col-md-9">
-                        <p class="form-control-plaintext text-muted">Alfred</p>
+                        <p class="form-control-plaintext text-muted">{{ $car -> model }}</p>
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="last_name" class="col-md-3 col-form-label">Year</label>
                       <div class="col-md-9">
-                        <p class="form-control-plaintext text-muted">Kuhlman</p>
+                        <p class="form-control-plaintext text-muted">{{ $car -> year }}</p>
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="email" class="col-md-3 col-form-label">Salesperson Email</label>
                       <div class="col-md-9">
-                        <p class="form-control-plaintext text-muted">alfred@test.com</p>
+                        <p class="form-control-plaintext text-muted">{{ $car -> salesperson_email }}</p>
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <label for="phone" class="col-md-3 col-form-label">Manufacturer</label>
                       <div class="col-md-9">
-                        <p class="form-control-plaintext text-muted">+6286767565656</p>
+                        <p class="form-control-plaintext text-muted">{{ $car -> manufacturer -> name }}</p>
                       </div>
                     </div>
 
