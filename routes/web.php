@@ -23,10 +23,15 @@ Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 //Create new car
 Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 
+//Post created Car to database
+Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+
 //Car details
 Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 
 //Edit Car
 Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
+
+
 
 

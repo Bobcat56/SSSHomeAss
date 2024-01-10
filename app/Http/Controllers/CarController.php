@@ -22,7 +22,31 @@ class CarController extends Controller
 
     public function create()
     {
-        return view('cars.create');
+        $manufacturers = Manufacturer::orderBy('name')->pluck('name', 'id')->prepend('Select Manufacurer', '');
+        return view('cars.create', compact('manufacturers'));
+    }
+
+    public function store(Request $request) 
+    {
+        $request->validate([
+            'model' => 'required',
+            'year' => 'required',
+            'email' => 'required | email',
+            'company_id' => 'required | exists:manufacturers,id'
+        ]);
+
+        $car = new Car([
+            'model' => $request->get('model'),
+            'year' => $request->get('year'),
+            'email' => $request->get('email'),
+            'manufacturer_id' => $request->get('company_id')
+        ]);
+
+        //dd($request->all());
+
+        $car->save();
+        return redirect('/cars')->with('success', 'Car saved!');
+        
     }
 
     public function show($id)
